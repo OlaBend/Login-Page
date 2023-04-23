@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top right,#361999,#78fff1);
+    height: 100vh;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+form {
+    background: linear-gradient(to left, rgba(255,255,255,0.05),rgba(255,255,255,0.35));
+    border-radius: 15px; /* zaokrągla rogi */
+    box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
+    max-height: 100%;
+    max-width: 300px;
+    padding: 36px 24px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+input, button {
+    background: linear-gradient(to left, rgba(255,255,255,0.1),rgba(255,255,255,0.25));
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0px 8px 24px 0 rgba(0, 0, 0, 0.3);
+    color: #F0FFFF;
+    padding: 12px 24px;
+    font-size: 20px;
+    transition: box-shadow 0.3s, outline 0.3s;
+}
+
+input {
+    width: 100%;
+}
+
+label {
+    color: aliceblue;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    transition: left 0.3s, opacity 0.3s ;
+    cursor: text;
+}
+
+.form_input_containter {
+    margin-bottom: 32px;
+    position: relative;
+}
+
+input:focus + label, input:not(:placeholder-shown) + label {
+    opacity: 0;
+    left: 180px;
+}
+
+input:hover, button:hover {
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+ input:focus, button:focus {
+    outline: solid 3px rgba(255,255,255,0.8); 
+} 
+
+button::after {
+    display: block;
+    content: "";
+    background: rgba(255, 255, 255, 0.5);
+    height: 100px;
+    width: 50px;
+    position: absolute;
+    left: -70px;
+    top: -50%;
+    transform: skewX(-15deg);
+    transition: left 0.15s linear;
+}
+
+button:hover::after {
+    left: 110%;
+}
+
+.spacer {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.55);
+    margin: 0 auto 32px;
+    width: 80%;
+    border-radius: 100%;
+}
+
+.icon {
+    height: 72px;
+    width: 72px;
+    border: solid 3px rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
+    margin: 0 auto 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon:before {
+    background: rgba(255, 255, 255, 0.6);
+    content: "";
+    height: 24px;
+    width: 64px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+}
+
+.icon:after {
+    background: rgba(255, 255, 255, 0.6);
+    content: "";
+    height: 27px;
+    width: 27px;
+    display: block;
+    position: absolute;
+    bottom: 50%;
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.dot {
+    background: linear-gradient(to left, #78fff1, rgba(255, 255, 255, 0.3));
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+
+}
+
+.dot:nth-child(1) {
+    height: 50vh;
+    width: 50vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: move1 10s linear infinite ;
+}
+
+.dot:nth-child(2) {
+    height: 30vh;
+    width: 30vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation: move2 15s linear infinite ;
+}
+
+@keyframes move1 {
+    from {transform: translateY(-10vh);}
+    to {transform: translateY(100vh);}
+}
+
+@keyframes move2 {
+    from {transform: translateY(50vh);}
+    to {transform: translateY(-80vh);}
+}
